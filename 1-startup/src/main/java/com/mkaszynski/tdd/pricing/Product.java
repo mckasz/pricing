@@ -1,14 +1,14 @@
 package com.mkaszynski.tdd.pricing;
 
-import java.util.Objects;
-
 class Product {
     private final String name;
     private final int price;
+    private final int quantity;
 
-    public Product(String name, int price) {
+    Product(String name, int price, int quantity) {
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
     }
 
     int price() {
@@ -19,17 +19,7 @@ class Product {
         return name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return price == product.price &&
-                Objects.equals(name, product.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price);
+    int quantity() {
+        return quantity;
     }
 }
