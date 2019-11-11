@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>1-startup</module>
+        <module>1a-startup-result</module>
         <module>1-startup-result</module>
         <module>2-timeprovider-result</module>
         <module>3-mocking-result</module>
