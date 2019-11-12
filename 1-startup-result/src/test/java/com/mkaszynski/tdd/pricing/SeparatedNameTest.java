@@ -5,7 +5,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class ReplaceCamelCaseTest {
+class SeparatedNameTest {
 
     // parametrized tests are nice and concise but we are loosing information
     // about test purpose, we need to either add comment, or put fancy arguments like here

@@ -5,61 +5,34 @@ import static java.lang.Character.isUpperCase;
 import static java.lang.Character.toLowerCase;
 
 class SeparatedName {
-
     private final String name;
 
     SeparatedName(String name) {
         this.name = name;
     }
 
-    @SuppressWarnings("StringConcatenationInLoop")
     String value() {
-        String result = "";
-        for (int idx = 0; idx < name.length(); idx++) {
-            char ch = name.charAt(idx);
-            if (isFirstChar(idx)) {
-                result += toLowerCase(ch);
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < name.length(); i++) {
+            char ch = name.charAt(i);
+            if (i == 0) {
+                result.append(toLowerCase(ch));
             } else if (isUpperCase(ch)) {
-                result += " " + toLowerCase(ch);
-            } else if (isDigit(ch) && prevCharNonDigit(idx) && nexCharNonDigit(idx)) {
-                result += " " + ch + " ";
-            } else if (isDigit(ch) && nexCharNonDigit(idx)) {
-                result += ch + " ";
-            } else if (isDigit(ch) && prevCharNonDigit(idx)) {
-                result += " " + ch;
+                result.append(" ").append(toLowerCase(ch));
+            } else if (isDigit(prevChar(i)) && isDigit(ch)) {
+                result.append(ch);
+            } else if (isDigit(prevChar(i))) {
+                result.append(" ").append(toLowerCase(ch));
+            } else if (isDigit(ch)) {
+                result.append(" ").append(ch);
             } else {
-                result += ch;
+                result.append(ch);
             }
         }
-        return result;
+        return result.toString();
     }
 
-    private boolean isFirstChar(int idx) {
-        return idx == 0;
+    private char prevChar(int i) {
+        return name.charAt(i - 1);
     }
-
-    private boolean prevCharNonDigit(int idx) {
-        return hasPrev(idx) && !isDigit(prevChar(idx));
-    }
-
-    private boolean nexCharNonDigit(int idx) {
-        return hasNext(idx) && !isDigit(nextChar(idx));
-    }
-
-    private boolean hasPrev(int idx) {
-        return idx >= 0;
-    }
-
-    private boolean hasNext(int idx) {
-        return idx < name.length() - 1;
-    }
-
-    private char prevChar(int idx) {
-        return name.charAt(idx - 1);
-    }
-
-    private char nextChar(int idx) {
-        return name.charAt(idx + 1);
-    }
-
 }
