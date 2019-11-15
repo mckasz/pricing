@@ -9,13 +9,13 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>1-startup</module>
-        <module>1a-startup-result</module>
-        <module>1-startup-result</module>
-        <module>2-timeprovider-result</module>
-        <module>3-mocking-result</module>
-        <module>4-feature</module>
-        <module>4-feature-result</module>
+        <module>1-warmup</module>
+        <module>2-startup</module>
+        <module>3-timeprovider</module>
+        <module>4-mocking</module>
+        <module>5-feature</module>
+        <module>6-app</module>
+        <module>7-result</module>
     </modules>
     <build>
         <plugins>
