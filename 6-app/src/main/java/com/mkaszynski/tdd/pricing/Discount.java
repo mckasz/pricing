@@ -1,26 +1,19 @@
 package com.mkaszynski.tdd.pricing;
 
-class Discount {
-    private final double value;
+import static java.lang.String.format;
 
-    Discount(double value) {
-        if (value > 100) {
-            throw new IllegalArgumentException(String.format("Too high price reduction: %s%%", value));
+public class Discount {
+    private final double discount;
+
+    Discount(int discount) {
+        if (discount > 100) {
+            throw new IllegalArgumentException(format("Discount cannot be higher than 100. Given: %d", discount));
         }
-        this.value = value;
-    }
 
-    double value() {
-        return value;
+        this.discount = discount;
     }
 
     double multiplier() {
-        return (100 - value) / 100;
-    }
-
-    void validate() {
-        if (value > 100) {
-            throw new IllegalArgumentException(String.format("Too high price reduction: %s%%", value()));
-        }
+        return 1 - (discount / 100);
     }
 }

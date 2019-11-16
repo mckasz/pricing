@@ -1,66 +1,49 @@
 package com.mkaszynski.tdd.pricing;
 
-import java.util.Objects;
+import lombok.Value;
 
+import static com.mkaszynski.tdd.pricing.Product.Type.LIQUID;
+
+@Value
 class Product {
     private final String name;
-    private final int quantity;
     private final int price;
+    private final int quantity;
     private final Type type;
 
-    enum Type {
-        LIQUID,
-        FOOD;
-
-    }
-    public Product(String name, int quantity, int price, Type type) {
+    Product(String name, int price, int quantity, Type type) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
         this.type = type;
     }
 
-    int price() {
-        return price;
-    }
-
-    String name() {
-        return name;
+    boolean isLiquid() {
+        return type == LIQUID;
     }
 
     int quantity() {
         return quantity;
     }
 
-    Type type() {
-        return type;
-    }
-
     Product samePrice(int quantity) {
-        return new Product(name, quantity, price, type);
+        return new Product(name, price, quantity, type);
     }
 
     Product freeProduct(int quantity) {
-        return new Product(name, quantity, 0, type);
+        return new Product(name, 0, quantity, type);
     }
 
-    Product discountedProduct(int discountedPrice) {
-        return new Product(name, quantity, discountedPrice, type);
+    Product applyDiscount(Discount discount) {
+        return new Product(name, calculateDiscount(discount), quantity, type);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return price == product.price &&
-                quantity == product.quantity &&
-                Objects.equals(name, product.name) &&
-                type == product.type;
+    private int calculateDiscount(Discount discount) {
+        return (int) (price * discount.multiplier());
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, price, quantity, type);
+    enum Type {
+        LIQUID,
+        FOOD
     }
 }

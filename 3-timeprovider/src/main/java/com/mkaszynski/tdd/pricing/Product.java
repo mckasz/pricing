@@ -9,11 +9,6 @@ class Product {
     private final int quantity;
     private final Type type;
 
-    enum Type {
-        LIQUID,
-        FOOD;
-    }
-
     Product(String name, int price, int quantity, Type type) {
         this.name = name;
         this.quantity = quantity;
@@ -43,5 +38,11 @@ class Product {
 
     Product freeProduct(int quantity) {
         return new Product(name, 0, quantity, type);
+    }
+
+    enum Type {
+        LIQUID,
+        FOOD
+
     }
 }
