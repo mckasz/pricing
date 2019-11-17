@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.tools;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;

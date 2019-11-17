@@ -1,2 +1,6 @@
-Create Pricing that reprices list of Products as it is defined in given Campaign.  
-Campaign takes Product list and Promotion.   
+- Create Cash Register that counts prices for Products as they are scanned 
+- Products that are defined in the campaign should have applied promotion
+- When scanning is finished payment needs to be taken
+- After payment we have a sale that should be send to Reporting Module
+- After payment receipt should be persisted and printed on printer
+- Each operation should be persisted

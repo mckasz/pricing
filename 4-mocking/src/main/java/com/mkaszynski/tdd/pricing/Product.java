@@ -5,13 +5,13 @@ import lombok.Value;
 import static com.mkaszynski.tdd.pricing.Product.Type.LIQUID;
 
 @Value
-class Product {
+public class Product {
     private final String name;
     private final int price;
     private final int quantity;
     private final Type type;
 
-    Product(String name, int price, int quantity, Type type) {
+    public Product(String name, int price, int quantity, Type type) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
@@ -22,15 +22,15 @@ class Product {
         return type == LIQUID;
     }
 
-    int quantity() {
+    public int quantity() {
         return quantity;
     }
 
-    Product samePrice(int quantity) {
+    public Product samePrice(int quantity) {
         return new Product(name, price, quantity, type);
     }
 
-    Product freeProduct(int quantity) {
+    public Product freeProduct(int quantity) {
         return new Product(name, 0, quantity, type);
     }
 
@@ -42,7 +42,7 @@ class Product {
         return (int) (price * discount.multiplier());
     }
 
-    enum Type {
+    public enum Type {
         LIQUID,
         FOOD
     }

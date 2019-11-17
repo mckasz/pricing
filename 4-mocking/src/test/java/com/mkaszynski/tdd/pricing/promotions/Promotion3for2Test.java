@@ -1,5 +1,7 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.promotions;
 
+import com.mkaszynski.tdd.pricing.Product;
+import com.mkaszynski.tdd.pricing.tools.CamelCaseAndUnderscoresGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
@@ -91,11 +93,11 @@ class Promotion3for2Test {
         assertThat(result).containsOnly(fullPriceMilk(4), freeMilk(2));
     }
 
-    private Product fullPriceMilk(int quantity) {
+    private static Product fullPriceMilk(int quantity) {
         return new Product("milk", 220, quantity, Product.Type.FOOD);
     }
 
-    private Product freeMilk(int quantity) {
+    private static Product freeMilk(int quantity) {
         return new Product("milk", 0, quantity, Product.Type.FOOD);
     }
 }

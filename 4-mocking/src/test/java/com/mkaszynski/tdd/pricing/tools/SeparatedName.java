@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.tools;
 
 import static java.lang.Character.isDigit;
 import static java.lang.Character.isUpperCase;

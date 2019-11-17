@@ -1,9 +1,11 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.promotions;
+
+import com.mkaszynski.tdd.pricing.Product;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Products {
+public class Products {
     private final List<Product> list = new ArrayList<>();
 
     void add(Product e) {

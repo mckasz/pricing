@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.promotions;
 
 import java.time.LocalTime;
 

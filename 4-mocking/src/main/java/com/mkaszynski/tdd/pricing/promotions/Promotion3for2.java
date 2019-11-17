@@ -1,4 +1,6 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.promotions;
+
+import com.mkaszynski.tdd.pricing.Product;
 
 import java.util.List;
 

@@ -1,10 +1,10 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.tools;
 
 import org.junit.jupiter.api.DisplayNameGenerator;
 
 import java.lang.reflect.Method;
 
-class CamelCaseAndUnderscoresGenerator extends DisplayNameGenerator.ReplaceUnderscores {
+public class CamelCaseAndUnderscoresGenerator extends DisplayNameGenerator.ReplaceUnderscores {
 
     @Override
     public String generateDisplayNameForMethod(Class<?> testClass, Method testMethod) {
