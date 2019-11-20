@@ -43,6 +43,10 @@ public class Product {
         return (int) (price * discount.multiplier());
     }
 
+    Product addQuantity(int otherQuantity) {
+        return new Product(name, price, quantity + otherQuantity, type);
+    }
+
     public enum Type {
         LIQUID,
         FOOD

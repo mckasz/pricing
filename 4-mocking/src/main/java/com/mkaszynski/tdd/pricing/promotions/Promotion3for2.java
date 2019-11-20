@@ -1,10 +1,11 @@
 package com.mkaszynski.tdd.pricing.promotions;
 
 import com.mkaszynski.tdd.pricing.Product;
+import com.mkaszynski.tdd.pricing.Products;
 
 import java.util.List;
 
-class Promotion3for2 implements Promotion {
+public class Promotion3for2 implements Promotion {
 
     @Override
     public List<Product> apply(Product product) {
