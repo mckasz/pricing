@@ -82,9 +82,12 @@ class BasketTest {
         return new Product("Butter", 220, quantity, Product.Type.FOOD);
     }
 
+    @SuppressWarnings("SameParameterValue")
     private Product beer(int quantity) {
         return new Product("Beer", 450, quantity, Product.Type.LIQUID);
     }
+
+    @SuppressWarnings("SameParameterValue")
     private Product freeButter(int quantity) {
         return new Product("Butter", 0, quantity, Product.Type.FOOD);
     }
