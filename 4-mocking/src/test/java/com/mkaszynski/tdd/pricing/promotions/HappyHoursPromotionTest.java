@@ -1,6 +1,5 @@
 package com.mkaszynski.tdd.pricing.promotions;
 
-import com.mkaszynski.tdd.pricing.Discount;
 import com.mkaszynski.tdd.pricing.Product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

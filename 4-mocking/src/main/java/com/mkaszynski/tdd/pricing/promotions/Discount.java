@@ -1,11 +1,11 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.promotions;
 
 import static java.lang.String.format;
 
 public class Discount {
     private final double discount;
 
-    public Discount(int discount) {
+    Discount(int discount) {
         if (discount > 100) {
             throw new IllegalArgumentException(format("Discount cannot be higher than 100. Given: %d", discount));
         }
@@ -13,7 +13,7 @@ public class Discount {
         this.discount = discount;
     }
 
-    double multiplier() {
+    public double multiplier() {
         return 1 - (discount / 100);
     }
 }

@@ -1,5 +1,6 @@
 package com.mkaszynski.tdd.pricing;
 
+import com.mkaszynski.tdd.pricing.promotions.Discount;
 import lombok.Value;
 
 import static com.mkaszynski.tdd.pricing.Product.Type.LIQUID;
@@ -18,7 +19,7 @@ public class Product {
         this.type = type;
     }
 
-    boolean isLiquid() {
+    public boolean isLiquid() {
         return type == LIQUID;
     }
 
@@ -34,7 +35,7 @@ public class Product {
         return new Product(name, 0, quantity, type);
     }
 
-    Product applyDiscount(Discount discount) {
+    public Product applyDiscount(Discount discount) {
         return new Product(name, calculateDiscount(discount), quantity, type);
     }
 
