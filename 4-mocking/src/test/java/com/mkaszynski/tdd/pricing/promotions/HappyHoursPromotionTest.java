@@ -1,6 +1,7 @@
 package com.mkaszynski.tdd.pricing.promotions;
 
-import com.mkaszynski.tdd.pricing.Product;
+import com.mkaszynski.tdd.pricing.model.ProductType;
+import com.mkaszynski.tdd.pricing.model.SelectedProduct;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +21,7 @@ class HappyHoursPromotionTest {
     void givesDiscountToLiquids() {
         HappyHoursPromotion promotion = happyHoursPromotion(currentTime("14:00"));
 
-        List<Product> products = promotion.apply(beer());
+        List<SelectedProduct> products = promotion.apply(beer());
 
         assertThat(products).containsOnly(discountedBeer());
     }
@@ -30,7 +31,7 @@ class HappyHoursPromotionTest {
     void foodNotDiscounted() {
         HappyHoursPromotion promotion = happyHoursPromotion(currentTime("14:00"));
 
-        List<Product> products = promotion.apply(butter());
+        List<SelectedProduct> products = promotion.apply(butter());
 
         assertThat(products).containsOnly(butter());
     }
@@ -40,7 +41,7 @@ class HappyHoursPromotionTest {
     void outsideHappyHoursLiquidNotDiscounted() {
         HappyHoursPromotion promotion = happyHoursPromotion(currentTime("16:00"));
 
-        List<Product> products = promotion.apply(beer());
+        List<SelectedProduct> products = promotion.apply(beer());
 
         assertThat(products).containsOnly(beer());
     }
@@ -50,7 +51,7 @@ class HappyHoursPromotionTest {
     void outsideHappyHoursFoodNotDiscounted() {
         HappyHoursPromotion promotion = happyHoursPromotion(currentTime("16:00"));
 
-        List<Product> products = promotion.apply(butter());
+        List<SelectedProduct> products = promotion.apply(butter());
 
         assertThat(products).containsOnly(butter());
     }
@@ -87,15 +88,15 @@ class HappyHoursPromotionTest {
         return () -> LocalTime.parse(time);
     }
 
-    private static Product beer() {
-        return new Product("butter", 1000, 2, Product.Type.LIQUID);
+    private static SelectedProduct beer() {
+        return new SelectedProduct("butter", 1000, 2, ProductType.LIQUID);
     }
 
-    private static Product discountedBeer() {
-        return new Product("butter", 700, 2, Product.Type.LIQUID);
+    private static SelectedProduct discountedBeer() {
+        return new SelectedProduct("butter", 700, 2, ProductType.LIQUID);
     }
 
-    private static Product butter() {
-        return new Product("butter", 600, 2, Product.Type.FOOD);
+    private static SelectedProduct butter() {
+        return new SelectedProduct("butter", 600, 2, ProductType.FOOD);
     }
 }

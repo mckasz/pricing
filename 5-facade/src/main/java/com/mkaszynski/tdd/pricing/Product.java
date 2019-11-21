@@ -47,10 +47,6 @@ public class Product {
         return new Product(name, price, quantity + otherQuantity, type);
     }
 
-    SummaryItem toSummaryItem() {
-        return new SummaryItem(getName(), getPrice(), getQuantity());
-    }
-
     public enum Type {
         LIQUID,
         FOOD

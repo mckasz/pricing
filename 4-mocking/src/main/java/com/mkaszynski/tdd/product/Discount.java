@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.pricing.promotions;
+package com.mkaszynski.tdd.product;
 
 import static java.lang.String.format;
 

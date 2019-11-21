@@ -1,6 +1,4 @@
-- Create App that counts prices for Products as they are added to the basket 
-- Products that are defined in the campaign should have applied promotion
-- After all items are added user can perform checkout which will be handled by external service 
-- After payment we have a placed order that should be send to Reporting Module
-- After payment receipt should be created and stored in db and send to the user
-- Each operation should be persisted
+Use mocks and write tests to:
+- BasketService class
+- MyDao class
+- Item class
