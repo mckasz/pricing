@@ -1,0 +1,10 @@
+package com.mkaszynski.tdd.pricing;
+
+import lombok.Value;
+
+@Value
+class SummaryItem {
+    private final String name;
+    private final int price;
+    private final int quantity;
+}

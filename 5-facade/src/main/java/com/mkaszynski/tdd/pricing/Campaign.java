@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Collections;
 import java.util.List;
 
-@RequiredArgsConstructor public
+@RequiredArgsConstructor
 class Campaign {
     private final String productName;
     private final Promotion promotion;
@@ -19,7 +19,7 @@ class Campaign {
         return this.promotion.apply(product);
     }
 
-    public static Campaign emptyCampaign() {
+    static Campaign emptyCampaign() {
         return new Campaign("", Collections::singletonList);
     }
 }

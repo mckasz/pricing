@@ -3,12 +3,12 @@ package com.mkaszynski.tdd.pricing;
 import java.util.ArrayList;
 import java.util.List;
 
-class Basket {
+public class Basket {
     private final Long id;
     private final Products products = new Products();
     private final Campaign campaign;
 
-    Basket(Long id, List<Product> products, Campaign campaign) {
+    public Basket(Long id, List<Product> products, Campaign campaign) {
         this.id = id;
         this.campaign = campaign;
         for (Product product : products) {
@@ -16,7 +16,7 @@ class Basket {
         }
     }
 
-    Long id() {
+    public Long id() {
         return id;
     }
 
