@@ -1,6 +1,5 @@
 package com.mkaszynski.tdd.product;
 
-import com.mkaszynski.tdd.pricing.promotions.Discount;
 import lombok.Value;
 
 @Value
