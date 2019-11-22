@@ -24,6 +24,10 @@ class Product {
         return name;
     }
 
+    boolean isLiquid() {
+        return type() == Type.LIQUID;
+    }
+
     int quantity() {
         return quantity;
     }
@@ -40,9 +44,16 @@ class Product {
         return new Product(name, 0, quantity, type);
     }
 
+    Product discountedProduct(Discount discount) {
+        return new Product(name, getDiscountedPrice(discount), quantity, type);
+    }
+
+    private int getDiscountedPrice(Discount discount) {
+        return (int) (price * discount.multiplier());
+    }
+
     enum Type {
         LIQUID,
         FOOD
-
     }
 }
