@@ -1,8 +1,8 @@
 package com.mkaszynski.tdd.mock;
 
-import lombok.Getter;
+import lombok.Data;
 
-@Getter
+@Data
 class User {
     private int id;
     private String name;

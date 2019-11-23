@@ -2,6 +2,8 @@ package com.mkaszynski.tdd.mock;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MyDaoTest {
@@ -19,10 +21,8 @@ class MyDaoTest {
         RestClient restClient = null;
         MyDao dao = new MyDao(restClient);
 
-        User user = dao.searchUsers("testLogin");
+        List<User> users = dao.listUsers();
 
-        assertThat(user.getName()).isEqualTo("John");
-        assertThat(user.getLogin()).isEqualTo("jj");
-        assertThat(user.getAge()).isEqualTo(12);
+        assertThat(users).isNotEmpty();
     }
 }
