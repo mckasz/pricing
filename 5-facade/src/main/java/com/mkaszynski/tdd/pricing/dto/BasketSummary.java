@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.pricing;
+package com.mkaszynski.tdd.pricing.dto;
 
 import lombok.Value;
 

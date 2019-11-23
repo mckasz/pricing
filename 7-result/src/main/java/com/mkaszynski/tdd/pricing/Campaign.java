@@ -12,7 +12,7 @@ class Campaign {
     private final Promotion promotion;
 
     boolean appliesFor(Product product) {
-        return this.productName.equals(product.getName());
+        return this.productName.equals(product.name());
     }
 
     List<Product> applyPromotion(Product product) {

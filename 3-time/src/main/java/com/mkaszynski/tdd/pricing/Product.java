@@ -1,8 +1,10 @@
 package com.mkaszynski.tdd.pricing;
 
-import lombok.Value;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Value
+@ToString
+@EqualsAndHashCode
 class Product {
     private final String name;
     private final int price;
@@ -24,10 +26,6 @@ class Product {
         return name;
     }
 
-    boolean isLiquid() {
-        return type() == Type.LIQUID;
-    }
-
     int quantity() {
         return quantity;
     }
@@ -42,14 +40,6 @@ class Product {
 
     Product freeProduct(int quantity) {
         return new Product(name, 0, quantity, type);
-    }
-
-    Product discountedProduct(Discount discount) {
-        return new Product(name, getDiscountedPrice(discount), quantity, type);
-    }
-
-    private int getDiscountedPrice(Discount discount) {
-        return (int) (price * discount.multiplier());
     }
 
     enum Type {

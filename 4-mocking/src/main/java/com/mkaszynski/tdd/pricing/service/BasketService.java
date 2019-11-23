@@ -12,17 +12,25 @@ import java.util.List;
 import java.util.Map;
 
 @RequiredArgsConstructor
-class BasketService {
+public class BasketService {
     private final ProductRepository productRepository;
     private final ProductCatalog productCatalog;
 
-    void add(Long basketId, String name, int quantity) {
+    public void add(Long basketId, String name, int quantity) {
         List<SelectedProduct> products = productRepository.getProducts(basketId);
         Product product = productCatalog.getProduct(name);
         SelectedProduct selectedProduct = new SelectedProduct(product.getName(), product.getPrice(), quantity, product.getType());
         Map<ProductKey, SelectedProduct> map = buildProductMap(products);
         mergeProducts(selectedProduct, map);
         productRepository.save(map.values());
+    }
+
+    private Map<ProductKey, SelectedProduct> buildProductMap(List<SelectedProduct> products) {
+        Map<ProductKey, SelectedProduct> map = new HashMap<>();
+        for (SelectedProduct product : products) {
+            map.put(key(product), product);
+        }
+        return map;
     }
 
     private void mergeProducts(SelectedProduct product, Map<ProductKey, SelectedProduct> map) {
@@ -36,14 +44,6 @@ class BasketService {
                 map.put(key, product);
             }
         }
-    }
-
-    private Map<ProductKey, SelectedProduct> buildProductMap(List<SelectedProduct> products) {
-        Map<ProductKey, SelectedProduct> map = new HashMap<>();
-        for (SelectedProduct product : products) {
-            map.put(key(product), product);
-        }
-        return map;
     }
 
     private static ProductKey key(SelectedProduct product) {

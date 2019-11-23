@@ -14,78 +14,60 @@ class Promotion3for2Test {
     @Test
     @DisplayName("should return product with same price for one product")
     void oneProduct() {
-        // arrange
         Product product = fullPriceMilk(1);
 
-        // act
         List<Product> result = promotion.apply(product);
 
-        // assert
         assertThat(result).containsOnly(fullPriceMilk(1));
     }
 
     @Test
     @DisplayName("should return product with same price for two products")
     void twoProducts() {
-        // arrange
         Product product = fullPriceMilk(2);
 
-        // act
         List<Product> result = promotion.apply(product);
 
-        // assert
         assertThat(result).containsOnly(fullPriceMilk(2));
     }
 
     @Test
     @DisplayName("should return one free product with for three same products")
     void threeProducts() {
-        // arrange
         Product product = fullPriceMilk(3);
 
-        // act
         List<Product> result = promotion.apply(product);
 
-        // assert
         assertThat(result).containsOnly(fullPriceMilk(2), freeMilk(1));
     }
 
     @Test
     @DisplayName("should return one free product with for four same products")
     void fourProducts() {
-        // arrange
         Product product = fullPriceMilk(4);
 
-        // act
         List<Product> result = promotion.apply(product);
 
-        // assert
         assertThat(result).containsOnly(fullPriceMilk(3), freeMilk(1));
     }
 
     @Test
     @DisplayName("should return one free product with for five same products")
     void fiveProducts() {
-        // arrange
         Product product = fullPriceMilk(5);
 
-        // act
         List<Product> result = promotion.apply(product);
 
-        // assert
         assertThat(result).containsOnly(fullPriceMilk(4), freeMilk(1));
     }
 
     @Test
     @DisplayName("should return two free products with for six same products")
     void sixProducts() {
-        // arrange
         Product product = fullPriceMilk(6);
 
-        // act
         List<Product> result = promotion.apply(product);
 
-        // assert
         assertThat(result).containsOnly(fullPriceMilk(4), freeMilk(2));
     }
 

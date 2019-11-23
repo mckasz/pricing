@@ -2,11 +2,13 @@ package com.mkaszynski.tdd.pricing;
 
 import com.mkaszynski.tdd.pricing.dto.SummaryItem;
 import com.mkaszynski.tdd.pricing.promotions.Discount;
-import lombok.Value;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import static com.mkaszynski.tdd.pricing.Product.Type.LIQUID;
 
-@Value
+@EqualsAndHashCode
+@ToString
 public class Product {
     private final String name;
     private final int price;
@@ -20,12 +22,16 @@ public class Product {
         this.type = type;
     }
 
-    public boolean isLiquid() {
-        return type == LIQUID;
+    public String name() {
+        return name;
     }
 
     public int quantity() {
         return quantity;
+    }
+
+    public boolean isLiquid() {
+        return type == LIQUID;
     }
 
     public Product samePrice(int quantity) {
@@ -44,16 +50,34 @@ public class Product {
         return (int) (price * discount.multiplier());
     }
 
-    Product addQuantity(int otherQuantity) {
-        return new Product(name, price, quantity + otherQuantity, type);
+    Product addQuantity(Product product) {
+        return new Product(name, price, quantity + product.quantity, type);
     }
 
     SummaryItem toSummaryItem() {
-        return new SummaryItem(getName(), getPrice(), getQuantity());
+        return new SummaryItem(name, price, quantity);
+    }
+
+    Key key() {
+        return new Key(name, price);
+    }
+
+    @EqualsAndHashCode
+    static class Key {
+        // Accessed by map
+        @SuppressWarnings("FieldCanBeLocal")
+        private final String name;
+        @SuppressWarnings("FieldCanBeLocal")
+        private final int price;
+
+        Key(String name, int price) {
+            this.name = name;
+            this.price = price;
+        }
     }
 
     public enum Type {
         LIQUID,
-        FOOD
+        FOOD;
     }
 }

@@ -10,12 +10,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 
 class BasketServiceTest {
+    private BasketRepository basketRepository = new InMemoryBasketRepo();
+    private ProductRepository productRepository = new InMemoryProductRepo();
 
     @DisplayName("empty basket, when product is added, there is 1 product in basket")
     @Test
     void addProduct() {
-        BasketRepository basketRepository = new InMemoryBasketRepo();
-        ProductRepository productRepository = new InMemoryProductRepo();
         productRepository.save(new Product("Butter", 220, 1, Product.Type.FOOD));
         BasketService basketService = new BasketService(basketRepository, productRepository);
 
@@ -28,9 +28,7 @@ class BasketServiceTest {
     @DisplayName("1 butter in basket, when 2 butters are added, there are 3 butters in basket")
     @Test
     void addProduct_basketNotEmpty() {
-        BasketRepository basketRepository = new InMemoryBasketRepo();
         basketRepository.save(new Basket(1L, newArrayList(butter()), Campaign.emptyCampaign()));
-        ProductRepository productRepository = new InMemoryProductRepo();
         productRepository.save(butter(1));
         BasketService basketService = new BasketService(basketRepository, productRepository);
 

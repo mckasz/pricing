@@ -18,7 +18,7 @@ class ProductInMemoryRepository implements ProductRepository {
 
     @Override
     public String save(Product product) {
-        map.put(product.getName(), product);
-        return product.getName();
+        map.put(product.name(), product);
+        return product.name();
     }
 }

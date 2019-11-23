@@ -1,8 +1,10 @@
 package com.mkaszynski.tdd.pricing;
 
-import lombok.Value;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-@Value
+@ToString
+@EqualsAndHashCode
 class Product {
     private final String name;
     private final int price;
@@ -20,14 +22,6 @@ class Product {
 
     String name() {
         return name;
-    }
-
-    Product samePrice(int quantity) {
-        return new Product(name(), price, quantity);
-    }
-
-    Product freeProduct(int quantity) {
-        return new Product(name(), 0, quantity);
     }
 
     int quantity() {

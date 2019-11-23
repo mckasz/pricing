@@ -11,7 +11,7 @@
     <modules>
         <module>1-warmup</module>
         <module>2-startup</module>
-        <module>3-timeprovider</module>
+        <module>3-time</module>
         <module>4-mocking</module>
         <module>5-facade</module>
         <module>6-app</module>
