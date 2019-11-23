@@ -1,9 +1,9 @@
 package com.mkaszynski.tdd.pricing.promotions;
 
-import com.mkaszynski.tdd.pricing.Product;
+import com.mkaszynski.tdd.pricing.SelectedProduct;
 
 import java.util.List;
 
 public interface Promotion {
-    List<Product> apply(Product product);
+    List<SelectedProduct> apply(SelectedProduct product);
 }

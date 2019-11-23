@@ -8,10 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class Products implements Iterable<Product> {
-    private final Map<ProductKey, Product> map = new HashMap<>();
+public class SelectedProducts implements Iterable<SelectedProduct> {
+    private final Map<ProductKey, SelectedProduct> map = new HashMap<>();
 
-    public void add(Product product) {
+    public void add(SelectedProduct product) {
         ProductKey key = key(product);
         if (product.quantity() != 0) {
             if (map.containsKey(key)) {
@@ -22,16 +22,16 @@ public class Products implements Iterable<Product> {
         }
     }
 
-    public List<Product> asList() {
+    public List<SelectedProduct> asList() {
         return new ArrayList<>(map.values());
     }
 
     @Override
-    public Iterator<Product> iterator() {
+    public Iterator<SelectedProduct> iterator() {
         return map.values().iterator();
     }
 
-    private static ProductKey key(Product product) {
+    private static ProductKey key(SelectedProduct product) {
         return new ProductKey(product.getName(), product.getPrice());
     }
 

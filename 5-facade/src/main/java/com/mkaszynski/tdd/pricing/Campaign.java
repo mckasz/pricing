@@ -11,11 +11,11 @@ class Campaign {
     private final String productName;
     private final Promotion promotion;
 
-    boolean appliesFor(Product product) {
+    boolean appliesFor(SelectedProduct product) {
         return this.productName.equals(product.getName());
     }
 
-    List<Product> applyPromotion(Product product) {
+    List<SelectedProduct> applyPromotion(SelectedProduct product) {
         return this.promotion.apply(product);
     }
 

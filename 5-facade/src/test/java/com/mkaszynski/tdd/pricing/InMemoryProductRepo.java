@@ -4,17 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 class InMemoryProductRepo implements ProductRepository {
-    private Map<String, Product> map = new HashMap<>();
+    private Map<String, SelectedProduct> map = new HashMap<>();
 
 
 
     @Override
-    public Product getProduct(String name) {
+    public SelectedProduct getProduct(String name) {
         return map.get(name);
     }
 
     @Override
-    public String save(Product product) {
+    public String save(SelectedProduct product) {
         map.put(product.getName(), product);
         return product.getName();
     }

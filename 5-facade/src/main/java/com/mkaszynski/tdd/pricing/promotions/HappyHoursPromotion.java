@@ -1,6 +1,6 @@
 package com.mkaszynski.tdd.pricing.promotions;
 
-import com.mkaszynski.tdd.pricing.Product;
+import com.mkaszynski.tdd.pricing.SelectedProduct;
 
 import java.time.LocalTime;
 import java.util.List;
@@ -19,7 +19,7 @@ class HappyHoursPromotion implements Promotion {
     }
 
     @Override
-    public List<Product> apply(Product product) {
+    public List<SelectedProduct> apply(SelectedProduct product) {
         if (product.isLiquid() && isIn(happyHour)) {
             return singletonList(product.applyDiscount(discount));
         }

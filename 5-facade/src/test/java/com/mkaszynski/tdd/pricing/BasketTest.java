@@ -70,25 +70,25 @@ class BasketTest {
         return new Basket(1L, Collections.emptyList(), campaign);
     }
 
-    private Basket basketWith(Product ... products) {
+    private Basket basketWith(SelectedProduct... products) {
         return new Basket(1L, Arrays.asList(products), Campaign.emptyCampaign());
     }
 
-    private Product butter() {
+    private SelectedProduct butter() {
         return butter(1);
     }
 
-    private Product butter(int quantity) {
-        return new Product("Butter", 220, quantity, Product.Type.FOOD);
+    private SelectedProduct butter(int quantity) {
+        return new SelectedProduct("Butter", 220, quantity, SelectedProduct.Type.FOOD);
     }
 
     @SuppressWarnings("SameParameterValue")
-    private Product beer(int quantity) {
-        return new Product("Beer", 450, quantity, Product.Type.LIQUID);
+    private SelectedProduct beer(int quantity) {
+        return new SelectedProduct("Beer", 450, quantity, SelectedProduct.Type.LIQUID);
     }
 
     @SuppressWarnings("SameParameterValue")
-    private Product freeButter(int quantity) {
-        return new Product("Butter", 0, quantity, Product.Type.FOOD);
+    private SelectedProduct freeButter(int quantity) {
+        return new SelectedProduct("Butter", 0, quantity, SelectedProduct.Type.FOOD);
     }
 }
