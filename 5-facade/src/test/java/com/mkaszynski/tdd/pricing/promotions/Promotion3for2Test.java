@@ -1,16 +1,13 @@
 package com.mkaszynski.tdd.pricing.promotions;
 
 import com.mkaszynski.tdd.pricing.Product;
-import com.mkaszynski.tdd.pricing.tools.CamelCaseAndUnderscoresGenerator;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@DisplayNameGeneration(CamelCaseAndUnderscoresGenerator.class)
 class Promotion3for2Test {
 
     private final Promotion3for2 promotion = new Promotion3for2();
