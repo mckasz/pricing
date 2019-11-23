@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.mock;
+package com.mkaszynski.tdd.answer;
 
 class TestResponse implements Response {
 

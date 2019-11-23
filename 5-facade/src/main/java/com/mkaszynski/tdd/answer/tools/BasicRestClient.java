@@ -1,7 +1,7 @@
-package com.mkaszynski.tdd.mock.tools;
+package com.mkaszynski.tdd.answer.tools;
 
-import com.mkaszynski.tdd.mock.ResponseVisitor;
-import com.mkaszynski.tdd.mock.RestClient;
+import com.mkaszynski.tdd.answer.ResponseVisitor;
+import com.mkaszynski.tdd.answer.RestClient;
 
 import java.io.BufferedReader;
 import java.io.IOException;

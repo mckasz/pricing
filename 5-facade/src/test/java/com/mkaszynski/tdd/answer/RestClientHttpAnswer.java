@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.mock;
+package com.mkaszynski.tdd.answer;
 
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;

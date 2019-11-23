@@ -1,6 +1,6 @@
-package com.mkaszynski.tdd.mock;
+package com.mkaszynski.tdd.answer;
 
-import com.mkaszynski.tdd.mock.tools.Serializer;
+import com.mkaszynski.tdd.answer.tools.Serializer;
 
 import java.io.IOException;
 import java.util.List;

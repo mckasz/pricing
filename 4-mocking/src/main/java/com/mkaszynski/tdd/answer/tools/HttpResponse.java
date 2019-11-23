@@ -1,6 +1,6 @@
-package com.mkaszynski.tdd.mock.tools;
+package com.mkaszynski.tdd.answer.tools;
 
-import com.mkaszynski.tdd.mock.Response;
+import com.mkaszynski.tdd.answer.Response;
 
 class HttpResponse implements Response {
     private final int status;

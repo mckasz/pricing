@@ -1,6 +1,6 @@
-package com.mkaszynski.tdd.mock;
+package com.mkaszynski.tdd.answer;
 
-import com.mkaszynski.tdd.mock.tools.BasicRestClient;
+import com.mkaszynski.tdd.answer.tools.BasicRestClient;
 
 import java.util.List;
 
