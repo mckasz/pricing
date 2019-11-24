@@ -1,25 +1,27 @@
 package com.mkaszynski.tdd.pricing;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ReplaceNameTest {
-    @Test
-    void shouldReturnNameWhenNameInConstructor() {
-        ReplaceName replaceName = new ReplaceName("name");
+
+    @ParameterizedTest
+    @CsvSource({
+            "name,name",
+            "nameOne,name One",
+            "digit1,digit 1",
+            "nameOneTwo,name One Two",
+            "Capital,Capital",
+            "digit123,digit 123",
+            "digit123text,digit 123 text",
+    })
+    void shouldReturnNameWhenNameInConstructor(String input, String expectedResult) {
+        ReplaceName replaceName = new ReplaceName(input);
 
         String result = replaceName.value();
 
-        assertThat(result).isEqualTo("name");
-    }
-
-    @Test
-    void shouldReturnSeparatedNameWhenCamelCaseNameInConstructor() {
-        ReplaceName replaceName = new ReplaceName("nameOne");
-
-        String result = replaceName.value();
-
-        assertThat(result).isEqualTo("name One");
+        assertThat(result).isEqualTo(expectedResult);
     }
 }
