@@ -1,5 +1,6 @@
 package com.mkaszynski.tdd.pricing;
 
+import com.mkaszynski.tdd.pricing.dto.SummaryItem;
 import com.mkaszynski.tdd.pricing.promotions.Discount;
 import lombok.Value;
 
@@ -45,6 +46,10 @@ public class SelectedProduct {
 
     SelectedProduct addQuantity(int otherQuantity) {
         return new SelectedProduct(name, price, quantity + otherQuantity, type);
+    }
+
+    SummaryItem toSummaryItem() {
+        return new SummaryItem(getName(), getPrice(), quantity());
     }
 
     public enum Type {
