@@ -14,22 +14,25 @@ class Promotion3for2Test {
     void shouldReturnFullPriceProduct_whenQuantityEqualsOne() {
         Promotion3for2 promotion = new Promotion3for2();
 
-        List<Product> result = promotion.apply(butter());
+        List<Product> result = promotion.apply(butter(1));
 
-        assertThat(result).containsOnly(butter());
+        assertThat(result).containsOnly(butter(1));
     }
 
     @Test
     void shouldReturnFullPriceProductAndFreeProduct_whenQuantityEqualsThree() {
         Promotion3for2 promotion = new Promotion3for2();
 
-        List<Product> result = promotion.apply(new Product("Butter", 220, 3));
+        List<Product> result = promotion.apply(butter(3));
 
-        assertThat(result).containsOnly(new Product("Butter", 220, 2),
-                                        new Product("Butter", 0, 1));
+        assertThat(result).containsOnly(butter(2), freeButter());
     }
 
-    private Product butter() {
-        return new Product("Butter", 220, 1);
+    private Product butter(int quantity) {
+        return new Product("Butter", 220, quantity);
+    }
+
+    private Product freeButter() {
+        return new Product("Butter", 0, 1);
     }
 }
