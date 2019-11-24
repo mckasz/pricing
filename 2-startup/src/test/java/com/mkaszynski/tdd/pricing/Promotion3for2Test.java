@@ -25,14 +25,23 @@ class Promotion3for2Test {
 
         List<Product> result = promotion.apply(butter(3));
 
-        assertThat(result).containsOnly(butter(2), freeButter());
+        assertThat(result).containsOnly(butter(2), freeButter(1));
+    }
+
+    @Test
+    void shouldReturnFourFullPriceProductAndTwoFreeProducts_whenQuantityEqualsSix() {
+        Promotion3for2 promotion = new Promotion3for2();
+
+        List<Product> result = promotion.apply(butter(6));
+
+        assertThat(result).containsOnly(butter(4), freeButter(2));
     }
 
     private Product butter(int quantity) {
         return new Product("Butter", 220, quantity);
     }
 
-    private Product freeButter() {
-        return new Product("Butter", 0, 1);
+    private Product freeButter(int quantity) {
+        return new Product("Butter", 0, quantity);
     }
 }
