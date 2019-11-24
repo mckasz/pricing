@@ -1,10 +1,12 @@
 package com.mkaszynski.tdd.pricing;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 
-@ToString
 @EqualsAndHashCode
+@Getter
+@ToString
 class Product {
     private final String name;
     private final int price;
