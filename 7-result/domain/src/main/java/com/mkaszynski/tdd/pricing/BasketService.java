@@ -4,13 +4,11 @@ import com.mkaszynski.tdd.pricing.dto.AddProductCommand;
 import com.mkaszynski.tdd.pricing.dto.BasketSummary;
 import com.mkaszynski.tdd.pricing.dto.Product;
 import com.mkaszynski.tdd.pricing.dto.SummaryItem;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-@Service
 public class BasketService {
 
     private final BasketRepository basketRepository;

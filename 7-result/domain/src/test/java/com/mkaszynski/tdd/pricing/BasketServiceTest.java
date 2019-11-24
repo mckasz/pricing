@@ -11,8 +11,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.util.Lists.newArrayList;
 
 class BasketServiceTest {
-    private BasketRepository basketRepository = new BasketInMemoryRepository();
-    private ProductRepository productRepository = new ProductInMemoryRepository();
+    private BasketRepository basketRepository = new InMemoryBasketRepo();
+    private ProductRepository productRepository = new InMemoryProductRepo();
 
     @DisplayName("empty basket, when product is added, there is 1 product in basket")
     @Test
