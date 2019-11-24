@@ -8,6 +8,7 @@ class ReplaceNameGenerator extends DisplayNameGenerator.ReplaceUnderscores {
 
     @Override
     public String generateDisplayNameForMethod(Class<?> testClass, Method testMethod) {
-        return super.generateDisplayNameForMethod(testClass, testMethod);
+        String name = super.generateDisplayNameForMethod(testClass, testMethod);
+        return new ReplaceName(name).value();
     }
 }
