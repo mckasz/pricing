@@ -3,9 +3,11 @@ package com.mkaszynski.tdd.pricing.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 public class SelectedProduct {
     private String name;
     private int price;
