@@ -6,11 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class Products implements Iterable<Product> {
-    private final Map<Product.Key, Product> map = new HashMap<>();
+public class SelectedProducts implements Iterable<SelectedProduct> {
+    private final Map<SelectedProduct.Key, SelectedProduct> map = new HashMap<>();
 
-    public void add(Product product) {
-        Product.Key key = product.key();
+    public void add(SelectedProduct product) {
+        SelectedProduct.Key key = product.key();
         if (product.quantity() != 0) {
             if (map.containsKey(key)) {
                 map.put(key, map.get(key).addQuantity(product));
@@ -20,12 +20,12 @@ public class Products implements Iterable<Product> {
         }
     }
 
-    public List<Product> asList() {
+    public List<SelectedProduct> asList() {
         return new ArrayList<>(map.values());
     }
 
     @Override
-    public Iterator<Product> iterator() {
+    public Iterator<SelectedProduct> iterator() {
         return map.values().iterator();
     }
 }

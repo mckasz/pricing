@@ -1,5 +1,6 @@
 package com.mkaszynski.tdd.pricing;
 
+import com.mkaszynski.tdd.pricing.dto.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +15,9 @@ class ProductResource {
     ProductRepository productRepository;
 
     @PostMapping("/product/")
-    void addProduct(@RequestBody Product product) {
+    Product addProduct(@RequestBody Product product) {
         productRepository.save(product);
+        return productRepository.getProduct(product.getName());
     }
 
     @GetMapping("/product/{name}")

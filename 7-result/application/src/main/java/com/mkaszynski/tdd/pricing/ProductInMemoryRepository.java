@@ -1,7 +1,6 @@
 package com.mkaszynski.tdd.pricing;
 
-import com.mkaszynski.tdd.pricing.Product;
-import com.mkaszynski.tdd.pricing.ProductRepository;
+import com.mkaszynski.tdd.pricing.dto.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -18,7 +17,7 @@ class ProductInMemoryRepository implements ProductRepository {
 
     @Override
     public String save(Product product) {
-        map.put(product.name(), product);
-        return product.name();
+        map.put(product.getName(), product);
+        return product.getName();
     }
 }

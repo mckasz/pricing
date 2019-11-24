@@ -7,13 +7,13 @@ import lombok.ToString;
 
 @EqualsAndHashCode
 @ToString
-public class Product {
+public class SelectedProduct {
     private final String name;
     private final int price;
     private final int quantity;
     private final Type type;
 
-    public Product(String name, int price, int quantity, Type type) {
+    public SelectedProduct(String name, int price, int quantity, Type type) {
         this.name = name;
         this.quantity = quantity;
         this.price = price;
@@ -32,24 +32,24 @@ public class Product {
         return type == Type.LIQUID;
     }
 
-    public Product samePrice(int quantity) {
-        return new Product(name, price, quantity, type);
+    public SelectedProduct samePrice(int quantity) {
+        return new SelectedProduct(name, price, quantity, type);
     }
 
-    public Product freeProduct(int quantity) {
-        return new Product(name, 0, quantity, type);
+    public SelectedProduct freeProduct(int quantity) {
+        return new SelectedProduct(name, 0, quantity, type);
     }
 
-    public Product applyDiscount(Discount discount) {
-        return new Product(name, calculateDiscount(discount), quantity, type);
+    public SelectedProduct applyDiscount(Discount discount) {
+        return new SelectedProduct(name, calculateDiscount(discount), quantity, type);
     }
 
     private int calculateDiscount(Discount discount) {
         return (int) (price * discount.multiplier());
     }
 
-    Product addQuantity(Product product) {
-        return new Product(name, price, quantity + product.quantity, type);
+    SelectedProduct addQuantity(SelectedProduct product) {
+        return new SelectedProduct(name, price, quantity + product.quantity, type);
     }
 
     SummaryItem toSummaryItem() {

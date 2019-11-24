@@ -5,13 +5,13 @@ import java.util.List;
 
 class Basket {
     private final Long id;
-    private final Products products = new Products();
+    private final SelectedProducts products = new SelectedProducts();
     private final Campaign campaign;
 
-    public Basket(Long id, List<Product> products, Campaign campaign) {
+    public Basket(Long id, List<SelectedProduct> products, Campaign campaign) {
         this.id = id;
         this.campaign = campaign;
-        for (Product product : products) {
+        for (SelectedProduct product : products) {
             this.products.add(product);
         }
     }
@@ -20,13 +20,13 @@ class Basket {
         return id;
     }
 
-    void add(Product product) {
+    void add(SelectedProduct product) {
         products.add(product);
     }
 
-    List<Product> products() {
-        List<Product> productsAfterPromotion = new ArrayList<>();
-        for (Product product : products) {
+    List<SelectedProduct> products() {
+        List<SelectedProduct> productsAfterPromotion = new ArrayList<>();
+        for (SelectedProduct product : products) {
             if (campaign.appliesFor(product)) {
                 productsAfterPromotion.addAll(campaign.applyPromotion(product));
             } else {

@@ -2,6 +2,7 @@ package com.mkaszynski.tdd.pricing;
 
 import com.mkaszynski.tdd.pricing.dto.AddProductCommand;
 import com.mkaszynski.tdd.pricing.dto.BasketSummary;
+import com.mkaszynski.tdd.pricing.dto.Product;
 import com.mkaszynski.tdd.pricing.dto.SummaryItem;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,9 @@ public class BasketService {
     public Long add(AddProductCommand command) {
         Basket basket = basketRepository.getBasket(command.getBasketId());
         Product product = productRepository.getProduct(command.getName());
-        product = product.samePrice(command.getQuantity());
+        SelectedProduct selectedProduct = product.buildSelectedProduct(command.getQuantity());
 
-        basket.add(product);
+        basket.add(selectedProduct);
 
         return basketRepository.save(basket);
     }
@@ -33,10 +34,10 @@ public class BasketService {
     public BasketSummary summary(Long basketId) {
         Basket basket = basketRepository.getBasket(basketId);
 
-        List<Product> products = basket.products();
+        List<SelectedProduct> products = basket.products();
 
         List<SummaryItem> items = products.stream()
-                                          .map(Product::toSummaryItem)
+                                          .map(SelectedProduct::toSummaryItem)
                                           .collect(toList());
         return new BasketSummary(items);
     }

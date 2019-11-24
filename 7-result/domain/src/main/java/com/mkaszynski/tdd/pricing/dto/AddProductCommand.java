@@ -1,10 +1,14 @@
 package com.mkaszynski.tdd.pricing.dto;
 
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class AddProductCommand {
-    private final Long basketId;
-    private final String name;
-    private final int quantity;
+    private Long basketId;
+    private String name;
+    private int quantity;
 }
