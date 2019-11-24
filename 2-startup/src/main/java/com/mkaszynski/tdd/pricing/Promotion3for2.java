@@ -3,22 +3,18 @@ package com.mkaszynski.tdd.pricing;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Collections.singletonList;
-
 class Promotion3for2 {
 
     List<Product> apply(Product product) {
         int quantity = product.quantity();
+        List<Product> result = new ArrayList<>();
         if (quantity == 3) {
-            List<Product> result = new ArrayList<>();
-
-            result.add(new Product(product.name(), product.getPrice(), 2));
-            result.add(new Product(product.name(), 0, 1));
-
-            return result;
+            result.add(product.fullPriceProduct(2));
+            result.add(product.freeProduct(1));
+        } else if (quantity == 1) {
+            result.add(product.fullPriceProduct(1));
         }
-
-        return singletonList(product);
+        return result;
     }
 
 }
