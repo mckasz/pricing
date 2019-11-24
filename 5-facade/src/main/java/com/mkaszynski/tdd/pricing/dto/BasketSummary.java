@@ -5,6 +5,6 @@ import lombok.Value;
 import java.util.List;
 
 @Value
-class BasketSummary {
+public class BasketSummary {
     List<SummaryItem> items;
 }

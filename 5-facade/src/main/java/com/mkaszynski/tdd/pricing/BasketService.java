@@ -1,6 +1,14 @@
 package com.mkaszynski.tdd.pricing;
 
-class BasketService {
-    // TODO Using TDD create service that uses basket methods, repositories and AddProductCommand as input and BasketSummary as Output
+import com.mkaszynski.tdd.pricing.dto.AddProductCommand;
+import com.mkaszynski.tdd.pricing.dto.BasketSummary;
 
+class BasketService {
+    void add(AddProductCommand command) {
+
+    }
+
+    BasketSummary summary(long l) {
+        return null;
+    }
 }

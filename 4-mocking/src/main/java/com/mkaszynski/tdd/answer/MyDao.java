@@ -15,18 +15,15 @@ class MyDao {
 
     List<User> listUsers() {
         String url = "https://jsonplaceholder.typicode.com/users";
-        return restClient.executeGet(url, new ResponseVisitor<List<User>>() {
-            @Override
-            public List<User> processResponse(Response response) {
-                if (response.getStatus() == 200) {
-                    try {
-                        return serializer.deserialize(response.getContent(), User.class);
-                    } catch (IOException e) {
-                        throw new IllegalStateException("Unable to deserialize response content " + response.getContent(), e);
-                    }
+        return restClient.executeGet(url, response -> {
+            if (response.getStatus() == 200) {
+                try {
+                    return serializer.deserialize(response.getContent(), User.class);
+                } catch (IOException e) {
+                    throw new IllegalStateException("Unable to deserialize response content " + response.getContent(), e);
                 }
-                throw new IllegalArgumentException("Unable to list users. Response status code: " + response.getStatus());
             }
+            throw new IllegalArgumentException("Unable to list users. Response status code: " + response.getStatus());
         });
     }
 
