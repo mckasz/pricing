@@ -27,18 +27,18 @@ class HappyHour {
         private HappyHourBuilder() {
         }
 
-        static HappyHourBuilder from(String time) {
-            HappyHourBuilder builder = new HappyHourBuilder();
-            builder.from = LocalTime.parse(time);
-            return builder;
-        }
-
         HappyHour to(String time) {
             LocalTime to = LocalTime.parse(time);
             if (from.isAfter(to)) {
                 throw new IllegalArgumentException(format("Happy hour start time %s is after end time %s", from, to));
             }
             return new HappyHour(from, to);
+        }
+
+        static HappyHourBuilder from(String time) {
+            HappyHourBuilder builder = new HappyHourBuilder();
+            builder.from = LocalTime.parse(time);
+            return builder;
         }
     }
 }

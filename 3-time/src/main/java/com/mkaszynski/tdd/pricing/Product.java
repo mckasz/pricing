@@ -42,10 +42,6 @@ class Product {
         return new Product(name, 0, quantity, type);
     }
 
-    Product discountedProduct() {
-        return new Product(name, 700, quantity, type);
-    }
-
     enum Type {
         LIQUID,
         FOOD

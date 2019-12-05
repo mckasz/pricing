@@ -1,15 +1,11 @@
 package com.mkaszynski.tdd.pricing.model;
 
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Setter
 @Getter
-@ToString
-@EqualsAndHashCode
 public class SelectedProduct {
     private String name;
     private int price;

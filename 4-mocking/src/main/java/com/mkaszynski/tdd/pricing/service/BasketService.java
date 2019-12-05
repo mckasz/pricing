@@ -7,7 +7,6 @@ import com.mkaszynski.tdd.pricing.repository.ProductCatalog;
 import com.mkaszynski.tdd.pricing.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,7 @@ public class BasketService {
         SelectedProduct selectedProduct = new SelectedProduct(product.getName(), product.getPrice(), quantity, product.getType());
         Map<ProductKey, SelectedProduct> map = buildProductMap(products);
         mergeProducts(selectedProduct, map);
-        productRepository.save(new ArrayList<>(map.values()));
+        productRepository.save(map.values());
     }
 
     private Map<ProductKey, SelectedProduct> buildProductMap(List<SelectedProduct> products) {
