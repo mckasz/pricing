@@ -8,6 +8,6 @@ import org.junit.jupiter.api.Test;
 class PricingTest {
 
     @Test
-    void shouldReturn1FreeProductAnd2FullPriceProducts_for3SameProducts() {
+    void shouldReturn1FreeProduct_and2FullPriceProducts_for3SameProducts() {
     }
 }
