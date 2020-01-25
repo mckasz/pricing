@@ -5,16 +5,19 @@ import com.mkaszynski.tdd.pricing.model.ProductKey;
 import com.mkaszynski.tdd.pricing.model.SelectedProduct;
 import com.mkaszynski.tdd.pricing.repository.ProductCatalog;
 import com.mkaszynski.tdd.pricing.repository.ProductRepository;
-import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequiredArgsConstructor
 public class BasketService {
     private final ProductRepository productRepository;
     private final ProductCatalog productCatalog;
+
+    BasketService(ProductRepository productRepository, ProductCatalog productCatalog) {
+        this.productRepository = productRepository;
+        this.productCatalog = productCatalog;
+    }
 
     public void add(Long basketId, String name, int quantity) {
         List<SelectedProduct> products = productRepository.getProducts(basketId);
@@ -23,6 +26,7 @@ public class BasketService {
         Map<ProductKey, SelectedProduct> map = buildProductMap(products);
         mergeProducts(selectedProduct, map);
         productRepository.save(map.values());
+        productCatalog.save(product);
     }
 
     private Map<ProductKey, SelectedProduct> buildProductMap(List<SelectedProduct> products) {

@@ -1,7 +1,9 @@
 package com.mkaszynski.tdd.answer;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
+@EqualsAndHashCode
 @Getter
 class User {
     private int id;

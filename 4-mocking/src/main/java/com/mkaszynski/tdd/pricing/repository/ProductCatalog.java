@@ -4,4 +4,5 @@ import com.mkaszynski.tdd.pricing.model.Product;
 
 public interface ProductCatalog {
     Product getProduct(String name);
+    void save(Product product);
 }

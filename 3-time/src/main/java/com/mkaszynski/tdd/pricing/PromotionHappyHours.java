@@ -18,9 +18,9 @@ class PromotionHappyHours implements Promotion {
     @Override
     public List<Product> apply(Product product) {
         List<Product> result = new ArrayList<>();
-        if (product.type() == Product.Type.LIQUID
-                && timeProvider.now().isAfter(LocalTime.parse("12:00"))
-                && timeProvider.now().isBefore(LocalTime.parse("14:00"))) {
+        if (timeProvider.now().isAfter(LocalTime.parse("12:00"))
+                && timeProvider.now().isBefore(LocalTime.parse("14:00"))
+                && product.type() == Product.Type.LIQUID) {
             result.add(product.discountedProduct(discount));
         } else {
             result.add(product);

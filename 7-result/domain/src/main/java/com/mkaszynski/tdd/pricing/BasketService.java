@@ -3,7 +3,6 @@ package com.mkaszynski.tdd.pricing;
 import com.mkaszynski.tdd.pricing.dto.AddProductCommand;
 import com.mkaszynski.tdd.pricing.dto.BasketSummary;
 import com.mkaszynski.tdd.pricing.dto.Product;
-import com.mkaszynski.tdd.pricing.dto.SummaryItem;
 
 import java.util.List;
 
@@ -34,9 +33,8 @@ public class BasketService {
 
         List<SelectedProduct> products = basket.products();
 
-        List<SummaryItem> items = products.stream()
-                                          .map(SelectedProduct::toSummaryItem)
-                                          .collect(toList());
-        return new BasketSummary(items);
+        return new BasketSummary(products.stream()
+                                         .map(SelectedProduct::toSummaryItem)
+                                         .collect(toList()));
     }
 }
