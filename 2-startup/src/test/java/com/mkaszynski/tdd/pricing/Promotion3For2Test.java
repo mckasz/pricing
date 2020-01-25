@@ -28,16 +28,40 @@ class Promotion3For2Test {
         assertThat(products).contains(butter(2));
     }
 
-    @DisplayName("Should return two product with same price and one discounted when three product quantity is equal 3")
+    @DisplayName("Should return two product with same price and one discounted when product quantity is equal 3")
     @Test
     void threeProducts() {
         List<Product> products = promotion.apply(butter(3));
 
-        assertThat(products).contains(butter(2), discountedButter());
+        assertThat(products).contains(butter(2), discountedButter(1));
     }
 
-    private Product discountedButter() {
-        return new Product("butter", 0, 1);
+    @DisplayName("Should return 3 products with same price and 1 discounted when product quantity is equal 4")
+    @Test
+    void fourProducts() {
+        List<Product> products = promotion.apply(butter(4));
+
+        assertThat(products).contains(butter(3), discountedButter(1));
+    }
+
+    @DisplayName("Should return 4 products with same price and 1 discounted when product quantity is equal 5")
+    @Test
+    void fiveProducts() {
+        List<Product> products = promotion.apply(butter(5));
+
+        assertThat(products).contains(butter(4), discountedButter(1));
+    }
+
+    @DisplayName("Should return 4 products with same price and 2 discounted when product quantity is equal 6")
+    @Test
+    void sixProducts() {
+        List<Product> products = promotion.apply(butter(6));
+
+        assertThat(products).contains(butter(4), discountedButter(2));
+    }
+
+    private Product discountedButter(int quantity) {
+        return new Product("butter", 0, quantity);
     }
 
     private static Product butter(int quantity) {

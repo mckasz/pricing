@@ -7,14 +7,17 @@ class Promotion3For2 {
 
     List<Product> apply(Product product) {
         List<Product> products = new ArrayList<>();
-        if (product.quantity() == 3) {
-            products.add(product.fullPrice(2));
-            products.add(product.freeProduct(1));
-        } else {
-            products.add(product);
-        }
-
+        products.add(product.freeProduct(freeQuantity(product.quantity())));
+        products.add(product.fullPrice(fullPriceQuantity(product.quantity())));
         return products;
+    }
+
+    private int fullPriceQuantity(int quantity) {
+        return quantity - freeQuantity(quantity);
+    }
+
+    private int freeQuantity(int quantity) {
+        return quantity / 3;
     }
 
 }
