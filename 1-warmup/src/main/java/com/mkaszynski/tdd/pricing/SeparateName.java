@@ -11,7 +11,7 @@ class SeparateName {
         String result = "";
         for (int i = 0; i < name.length(); i++) {
             char ch = name.charAt(i);
-            if (Character.isUpperCase(ch)) {
+            if (Character.isUpperCase(ch) && i > 0) {
                 result += " " + ch;
             } else {
                 result += ch;

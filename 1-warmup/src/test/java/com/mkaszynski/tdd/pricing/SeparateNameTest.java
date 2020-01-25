@@ -1,27 +1,22 @@
 package com.mkaszynski.tdd.pricing;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class SeparateNameTest {
 
-    @Test
-    void shouldReturnValueFromConstructor() {
-        SeparateName separateName = new SeparateName("name");
+    @ParameterizedTest
+    @CsvSource({"name,name",
+                "oneCapital,one Capital",
+                "OneCapital,One Capital"
+    })
+    void shouldSplitStringByCapitalLettersAndDigits(String input, String expectedResult) {
+        SeparateName separateName = new SeparateName(input);
 
         String result = separateName.value();
 
-        assertThat(result).isEqualTo("name");
-    }
-
-    @Test
-    void shouldSplitTwoWords() {
-        SeparateName separateName = new SeparateName("oneCapital");
-
-        String result = separateName.value();
-
-        assertThat(result).isEqualTo("one Capital");
+        assertThat(result).isEqualTo(expectedResult);
     }
 }
