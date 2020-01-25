@@ -10,13 +10,16 @@ class SeparateNameTest {
     @ParameterizedTest
     @CsvSource({"name,name",
                 "oneCapital,one Capital",
-                "OneCapital,One Capital"
+                "OneCapital,One Capital",
+                "oneDigit1,one Digit 1",
+                "1oneDigit,1 one Digit",
+                "10oneDigit,10 one Digit",
     })
     void shouldSplitStringByCapitalLettersAndDigits(String input, String expectedResult) {
         SeparateName separateName = new SeparateName(input);
 
         String result = separateName.value();
 
-        assertThat(result).isEqualTo(expectedResult);
+        assertThat(result).describedAs("").isEqualTo(expectedResult);
     }
 }
