@@ -42,6 +42,14 @@ class Product {
         return new Product(name, 0, quantity, type);
     }
 
+    Product discountedProduct(Discount discount) {
+        return new Product(name, discountedPrice(discount), quantity, type);
+    }
+
+    private int discountedPrice(Discount discount) {
+        return (int) (price * discount.multiplier());
+    }
+
     enum Type {
         LIQUID,
         FOOD

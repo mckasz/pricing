@@ -7,7 +7,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 class Promotion3For2Test {
 
     private final Promotion3For2 promotion = new Promotion3For2();
