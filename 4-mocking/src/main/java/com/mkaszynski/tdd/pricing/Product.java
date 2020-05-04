@@ -1,4 +1,4 @@
-package com.mkaszynski.tdd.pricing.model;
+package com.mkaszynski.tdd.pricing;
 
 import lombok.Value;
 
@@ -6,5 +6,4 @@ import lombok.Value;
 public class Product {
     private final String name;
     private final int price;
-    private final ProductType type;
 }
