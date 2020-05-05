@@ -1,2 +1,2 @@
-# com.mkaszynski.tdd.pricing
+# Pricing
 Project used as an example for TDD training
