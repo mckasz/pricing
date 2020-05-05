@@ -8,7 +8,7 @@
     <description>Test project for TDD and Refactoring workshops</description>
 
     <groupId>com.mkaszynski.tdd</groupId>
-    <artifactId>com.mkaszynski.tdd.pricing</artifactId>
+    <artifactId>pricing</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
