@@ -6,25 +6,32 @@ import java.util.List;
 class Pricing {
 
     private final Promotion promotion;
+    private final EventSender eventSender;
 
-    Pricing(Promotion promotion) {
+    Pricing(Promotion promotion, EventSender eventSender) {
         this.promotion = promotion;
+        this.eventSender = eventSender;
     }
 
     List<Product> reprice(List<Product> input) {
-        List<Product> result = new ArrayList<>();
+        List<Product> products = new ArrayList<>();
         for (Product product : input) {
-            result.addAll(promotion.apply(product));
+            if (product.isFood()) {
+                products.addAll(promotion.apply(product));
+            } else {
+                products.add(product);
+            }
         }
-        return result;
+        eventSender.send(new RepricedProductsEvent(products));
+        return products;
     }
 
-    String prepareReceipt(List<Product> input) {
+    String getReceipt(List<Product> products) {
         StringBuilder result = new StringBuilder();
-        for (Product product : input) {
-            double price = (double) (product.getPrice()) / 100;
-            result.append(" - ").append(product.getName()).append(" ").append(price).append("zł/n");
+        for (Product product : products) {
+            result.append(product.getName()).append(" ").append(product.getPrice()).append(" zł");
         }
+        eventSender.send(new ReceiptGeneratedEvent());
         return result.toString();
     }
 
