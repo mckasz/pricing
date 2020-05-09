@@ -3,9 +3,9 @@ package com.mkaszynski.tdd.pricing;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalTime;
 import java.util.List;
 
+import static com.mkaszynski.tdd.pricing.Duration.DurationBuilder.from;
 import static com.mkaszynski.tdd.pricing.Product.Type.FOOD;
 import static com.mkaszynski.tdd.pricing.TestTimeProvider.nowIs;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,33 +16,31 @@ class PromotionHappyHoursTest {
     @Test
     void fullPriceProduct() {
         PromotionHappyHours promotion = new PromotionHappyHours();
-        LocalTime start = LocalTime.parse("12:00");
-        LocalTime end = LocalTime.parse("14:00");
-        Product product = product();
 
-        List<Product> result = promotion.apply(product, start, end, new Discount(30), nowIs("15:00"));
+        List<Product> result = promotion.apply(product(),
+                                               from("12:00").to("14:00").nowIs(nowIs("15:00")),
+                                               new Discount(30));
 
         assertThat(result).containsOnly(product());
     }
 
     @DisplayName("Should return discounted product, when in happy hours")
     @Test
-    void discountedProduct() {
+    void discountedProductTest() {
         PromotionHappyHours promotion = new PromotionHappyHours();
-        LocalTime start = LocalTime.parse("12:00");
-        LocalTime end = LocalTime.parse("14:00");
-        Product product = product();
 
-        List<Product> result = promotion.apply(product, start, end, new Discount(30), nowIs("13:00"));
+        List<Product> result = promotion.apply(product(),
+                                               from("12:00").to("14:00").nowIs(nowIs("13:00")),
+                                               new Discount(30));
 
-        assertThat(result).containsOnly(discoutnedProduct());
+        assertThat(result).containsOnly(discountedProduct());
     }
 
     private Product product() {
         return new Product("ProductName", 10, 1, FOOD);
     }
 
-    private Product discoutnedProduct() {
+    private Product discountedProduct() {
         return new Product("ProductName", 7, 1, FOOD);
     }
 
