@@ -11,7 +11,7 @@ class SeparateNameTest {
     @CsvSource({
             "one,one",
             "oneTwo,one Two",
-            "oneTwo,one TWO",
+            "oneTWO,one TWO",
             "oneTwoThree,one Two Three",
 
             // handles numbers
