@@ -1,5 +1,10 @@
 package com.mkaszynski.tdd.pricing;
 
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+
+@Builder
+@EqualsAndHashCode
 class Product {
     private final String name;
     private final int price;
@@ -22,5 +27,4 @@ class Product {
     int quantity() {
         return quantity;
     }
-
 }

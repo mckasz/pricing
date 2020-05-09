@@ -8,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SeparateNameTest {
 
+    private Promotion3for2 promotion3for2 = new Promotion3for2();
     @CsvSource({
             "one,one",
             "oneTwo,one Two",
@@ -24,6 +25,10 @@ class SeparateNameTest {
     @ParameterizedTest
     void shouldReturnAppropriateNameForProvidedInput(String input, String expectedResult) {
         SeparateName separateName = new SeparateName(input);
+
+
+        promotion3for2.apply(null);
+
 
         String result = separateName.value();
 
