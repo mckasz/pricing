@@ -1,10 +1,5 @@
 package com.mkaszynski.tdd.pricing;
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
-@ToString
-@EqualsAndHashCode
 class Product {
     private final String name;
     private final int price;
@@ -28,11 +23,4 @@ class Product {
         return quantity;
     }
 
-    Product fullPrice(int quantity) {
-        return new Product(name, price, quantity);
-    }
-
-    Product free(int quantity) {
-        return new Product(name, 0, quantity);
-    }
 }
