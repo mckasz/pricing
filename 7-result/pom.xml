@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mkaszynski.tdd</groupId>
-        <artifactId>com.mkaszynski.tdd.pricing</artifactId>
+        <artifactId>pricing</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>7-result</artifactId>
