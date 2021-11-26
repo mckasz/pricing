@@ -23,6 +23,6 @@ class MyDaoTest {
 
         List<User> users = dao.listUsers();
 
-        assertThat(users).isNotEmpty();
+        assertThat(users).containsOnly(new User("John", "jj", 12));
     }
 }

@@ -1,19 +1,16 @@
 package com.mkaszynski.tdd.answer;
 
-import lombok.Getter;
-
-@Getter
 class User {
-    private int id;
     private String name;
-    private String email;
+    private String login;
+    private int age;
 
     User() {
     }
 
-    User(int id, String name, String email) {
-        this.id = id;
+    public User(String name, String login, int age) {
         this.name = name;
-        this.email = email;
+        this.login = login;
+        this.age = age;
     }
 }
