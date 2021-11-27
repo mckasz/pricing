@@ -1,9 +1,12 @@
 package com.mkaszynski.tdd.pricing;
 
+import lombok.Value;
+
+@Value
 class Product {
-    private final String name;
-    private final int price;
-    private final int quantity;
+    String name;
+    int price;
+    int quantity;
 
     Product(String name, int price, int quantity) {
         this.name = name;
@@ -11,15 +14,11 @@ class Product {
         this.quantity = quantity;
     }
 
-    int price() {
-        return price;
+    public Product freeProduct(int quantity) {
+        return new Product(name, 0, quantity);
     }
 
-    String name() {
-        return name;
-    }
-
-    int quantity() {
-        return quantity;
+    public Product productOfQuantity(int quantity) {
+        return new Product(name, price, quantity);
     }
 }
